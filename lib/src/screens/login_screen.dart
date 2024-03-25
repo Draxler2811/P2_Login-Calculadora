@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login/src/bloc/bloc.dart';
-
+import 'package:login/src/Calculadora.dart';
 class LoginScreen extends StatelessWidget {
   //se crea una intancia de bloc
   // final bloc = Bloc();
@@ -15,7 +15,7 @@ class LoginScreen extends StatelessWidget {
         Container(
           margin: EdgeInsets.only(top: 25.0),
         ),
-        submitButton()
+        submitButton(context)
       ]),
     );
   }
@@ -54,11 +54,16 @@ class LoginScreen extends StatelessWidget {
       },
     );
   }
-
-  Widget submitButton() {
+Widget submitButton(BuildContext context) { // Recibe el contexto como parámetro
     return ElevatedButton(
       child: Text('Entrar'),
-      onPressed: () {},
+      onPressed: () {
+        // Navega a la pantalla de la calculadora cuando se hace clic en el botón "Entrar"
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MyCalculadora()),
+        );
+      },
     );
   }
-}
+  }

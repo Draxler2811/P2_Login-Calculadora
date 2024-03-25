@@ -6,6 +6,8 @@ class Bloc with Validators {
   final _emailController = StreamController<String>();
   final _passwordController = StreamController<String>();
 
+  
+
   Stream<String> get email => _emailController.stream.transform(ValidaEmail);
   Stream<String> get password => _passwordController.stream.transform(ValidaPassword);
 
